@@ -40,10 +40,17 @@ app.post('/artists', (req, res) => {
   res.status(201).send(newArtist);
 })
 
+//Get the latest artist added
+app.get('/artists/latest', (req, res) => {
+  let latestArtist = getLatestArtist();
+  res.status(200).send(latestArtist);
+})
 
-
-
-
+//Get all albums of the latest artist
+app.get('/artists/latest/albums', (req, res) => {
+  let latestArtistAlbums = getAlbumsForLatestArtist();
+  res.status(200).send(latestArtistAlbums);
+})
 
 
 
